@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  <h1> {% if post.title %} {{ post.title }} {% else %} no data {{ post }} {% endif %}</h1>
+  <p class="date">
+    Published {{ post.publish }} by {{ post.author }}
+  </p>
+  {{ post.body|linebreaks }} 
+  <p>
+    <a href="{% url "blog:post_share" post.id  %}">
+        SHARE POST
+    </a>
+  </p>
+{% endblock %}
